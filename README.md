@@ -60,6 +60,7 @@ You can also write multi-line queries, which are generally easier to read:
                MATCH (a)
                RETURN a
                """
+Do note that you cannot pass strings with a single quote `'`. You must escape single quotes before sending a query. This function might be helpful: `<string>.replace(/'/g, "\\'")`
 
 ## Reseting
 
