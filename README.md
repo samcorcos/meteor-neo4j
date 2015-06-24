@@ -17,7 +17,7 @@ You can get up and running quickly by starting Neo4j, and then starting Meteor:
     neo4j start
     meteor
 
-Neo4j has a nice browser interface so be sure to check it out! 
+Neo4j has a nice browser interface so be sure to check it out!
 The default URL is http://localhost:7474/
 
 Then, when you're done, make sure you stop Neo4j as well:
@@ -26,7 +26,7 @@ Then, when you're done, make sure you stop Neo4j as well:
 
 ### CLI
 
-I'm working on a command-line tool for this package. 
+I'm working on a command-line tool for this package.
 Hopefully at some point, Meteor will allow some hooks into the build system.
 The main benefit of this tool is that it creates a Neo4j database in `.meteor/local/neo4j/`
 so that you can separate your projects nicely. First, download the script and make it
@@ -35,7 +35,7 @@ executable.
     curl -O https://raw.githubusercontent.com/ccorcos/meteor-neo4j/master/m4j
     chmod +x m4j
 
-Make sure this script is somewhere on your path. Then from inside your Meteor project, 
+Make sure this script is somewhere on your path. Then from inside your Meteor project,
 you can start Neo4j and it will create a database for this project if it doesn't already exist.
 
     m4j start
@@ -45,7 +45,7 @@ Then feel free to start up Meteor. And when you're done, you can stop using:
     m4j stop
 
 Finally, when you use `meteor reset`, it will also clear the Neo4j database because `meteor reset`
-clears the project's `.meteor/local/` directory. 
+clears the project's `.meteor/local/` directory.
 Just **make sure you stop Neo4j before resetting meteor**.
 
 
@@ -55,8 +55,8 @@ On the server, start the database connection:
 
     Neo4j = new Neo4jDB()
 
-This defaults to running on `http://localhost:7474/`. 
-If you want to connect to a Neo4j instance running elsewhere, 
+This defaults to running on `http://localhost:7474/`.
+If you want to connect to a Neo4j instance running elsewhere,
 you can pass a url string with authentication:
 
     Neo4j = new Neo4jDB("http://username:password@project.graphenedb.com:24789")
@@ -84,7 +84,7 @@ way of interpreting them.
 - If you query multiple properties, you'll get a 2D array. e.g. `MATCH (n) RETURN n.name, n.email`
 
 Neo4j queries don't play will with `JSON.stringify` for a variety of reasons.
-For that reason, use `Neo4j.stringify`. e.g. 
+For that reason, use `Neo4j.stringify`. e.g.
 
     Neo4j.query "CREATE (:PERSON #{Neo4j.stringify(user)})"
 
@@ -103,8 +103,8 @@ You can also check to see if the database is empty using:
 
 ## Deploy
 
-There are several hosting solution for Neo4j. 
-[GrapheneDB](http://www.graphenedb.com/) is popular.
+There are several hosting solution for Neo4j.
+[GrapheneDB](http://www.graphenedb.com/) is popular. See [this article](https://medium.com/@SamCorcos/connecting-meteor-to-a-neo4j-database-and-deploying-with-graphenedb-3321966c3102) for more information.
 
 ## Quirks
 
